@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "LocalStorage Peeker",
+  "version": "1.0",
+  "description": "Hard refresh and localStorage clipboard copy.",
+  "permissions": ["storage", "scripting", "tabs", "browsingData", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

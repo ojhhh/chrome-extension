@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localstorage Peeker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 300px;
+        height: auto;
+        background-color: #333;
+        color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .container {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .screen {
+        width: 50%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .screen.main {
+        background-color: #333;
+      }
+
+      .screen.save {
+        background-color: #333;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .header button {
+        background-color: #555;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .header button:hover {
+        background-color: #666;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        background-color: #555;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      li span {
+        margin-right: 10px;
+      }
+
+      li button {
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      li:hover {
+        background-color: #666;
+      }
+
+      button:hover {
+        background-color: #666;
+      }
+
+      #inputBox {
+        display: flex;
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      #keyInput {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 10px;
+        margin-right: 5px;
+        border-radius: 5px;
+        background-color: #222;
+        box-sizing: border-box;
+        color: #fff;
+        outline: none;
+      }
+
+      #saveBtn {
+        width: 20%;
+        height: 100%;
+        padding-left: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #555;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .key-list-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
+        border-radius: 5px;
+        max-height: 50px;
+      }
+
+      .key-list-container::-webkit-scrollbar {
+        height: 8px;
+        width: 10px;
+      }
+
+      .key-list-container::-webkit-scrollbar-thumb {
+        background: #333;
+        background-color: #333;
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 1px solid transparent;
+      }
+
+      .key-list-container::-webkit-scrollbar-track {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px #fff;
+      }
+
+      #keyList li {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- Main Screen -->
+      <div class="screen main" id="mainScreen">
+        <div class="header">
+          <h1>Localstorage Peeker</h1>
+          <button id="toSaveScreen">add</button>
+        </div>
+        <ul id="keyList"></ul>
+      </div>
+
+      <!-- Save Screen -->
+      <div class="screen save" id="saveScreen">
+        <div class="header">
+          <h1>Manage Keys</h1>
+          <button id="toMainScreen">return</button>
+        </div>
+        <div id="inputBox">
+          <input type="text" id="keyInput" placeholder="Enter key" />
+          <button id="saveBtn">Save</button>
+        </div>
+        <div class="key-list-container">
+          <ul id="keyListSave"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
