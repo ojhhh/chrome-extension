@@ -17,6 +17,32 @@
         overflow: hidden;
       }
 
+      #keyList {
+        max-height: 200px;
+        overflow-x: auto;
+        padding: 10px;
+        margin: 0;
+        list-style: none;
+      }
+
+      #keyList::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      #keyList::-webkit-scrollbar-thumb {
+        background: #222;
+        border-radius: 4px;
+      }
+
+      #keyList::-webkit-scrollbar-thumb:hover {
+        background: #666;
+      }
+
+      #keyList::-webkit-scrollbar-track {
+        background-color: #444;
+        border-radius: 10px;
+      }
+
       .container {
         display: flex;
         width: 200%;
@@ -81,10 +107,18 @@
         border-radius: 5px;
         cursor: pointer;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
       }
 
       li span {
         margin-right: 10px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 220px;
+        white-space: nowrap;
       }
 
       li button {
@@ -101,70 +135,6 @@
       button:hover {
         background-color: #666;
       }
-
-      #inputBox {
-        display: flex;
-        margin-top: 10px;
-        width: 100%;
-        height: 40px;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-      }
-
-      #keyInput {
-        width: 100%;
-        height: 100%;
-        border: none;
-        padding: 10px;
-        margin-right: 5px;
-        border-radius: 5px;
-        background-color: #222;
-        box-sizing: border-box;
-        color: #fff;
-        outline: none;
-      }
-
-      #saveBtn {
-        width: 20%;
-        height: 100%;
-        padding-left: 5px;
-        border: none;
-        border-radius: 5px;
-        background-color: #555;
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .key-list-container {
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 10px 0;
-        border-radius: 5px;
-        max-height: 50px;
-      }
-
-      .key-list-container::-webkit-scrollbar {
-        height: 8px;
-        width: 10px;
-      }
-
-      .key-list-container::-webkit-scrollbar-thumb {
-        background: #333;
-        background-color: #333;
-        border-radius: 10px;
-        background-clip: padding-box;
-        border: 1px solid transparent;
-      }
-
-      .key-list-container::-webkit-scrollbar-track {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: inset 0px 0px 5px #fff;
-      }
-
-      #keyList li {
-        margin: 0;
-      }
     </style>
   </head>
   <body>
@@ -173,24 +143,8 @@
       <div class="screen main" id="mainScreen">
         <div class="header">
           <h1>Localstorage Peeker</h1>
-          <button id="toSaveScreen">manage</button>
         </div>
         <ul id="keyList"></ul>
-      </div>
-
-      <!-- Save Screen -->
-      <div class="screen save" id="saveScreen">
-        <div class="header">
-          <h1>Manage Keys</h1>
-          <button id="toMainScreen">return</button>
-        </div>
-        <div id="inputBox">
-          <input type="text" id="keyInput" placeholder="Enter key" />
-          <button id="saveBtn">Save</button>
-        </div>
-        <div class="key-list-container">
-          <ul id="keyListSave"></ul>
-        </div>
       </div>
     </div>
 
